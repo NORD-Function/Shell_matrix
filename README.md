@@ -30,7 +30,7 @@ Perfect for:
 
 ## Features
 
-### 🖥️ **Multi-Terminal Management**
+### **Multi-Terminal Management**
 - Create unlimited terminal tabs with real PTY (pseudo-terminal) support
 - Full terminal emulation with **xterm.js**
 - Support for multiple shells: Bash, Zsh, Fish, Sh
