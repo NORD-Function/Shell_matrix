@@ -2,6 +2,8 @@
 
 # 🖥️ SHELL MATRIX - Advanced Terminal Dashboard
 
+** kali_dashboard was a phase. **
+
 <div align="center">
 
 ![Shell Matrix Banner](https://img.shields.io/badge/Shell-Matrix-darkred?style=for-the-badge&logo=linux)
