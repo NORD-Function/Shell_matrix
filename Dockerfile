@@ -20,4 +20,4 @@ EXPOSE 8000
 
 ENV PYTHONUNBUFFERED=1
 
-CMD ["python", "shell_matrix_clean.py"]
+CMD ["python", "shell_matrix.py"]
