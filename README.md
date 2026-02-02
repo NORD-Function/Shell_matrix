@@ -1,4 +1,4 @@
-<img width="1024" height="656" alt="shell_matrix" src="https://github.com/user-attachments/assets/ab7e2cb9-85d1-4c7c-be40-bf17c77b0fe1" />
+<img width="694" height="479" alt="shell_matrix" src="https://github.com/user-attachments/assets/12e75565-1a46-4be2-acb5-3f755dd56f94" />
 
 # 🖥️ SHELL MATRIX - Advanced Terminal Dashboard
 
