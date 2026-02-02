@@ -111,7 +111,7 @@ Perfect for:
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/shell-matrix.git
+git clone https://github.com/NORD-Function/shell-matrix.git
 cd shell-matrix
 ```
 
@@ -221,7 +221,7 @@ All interface elements, messages, and prompts are fully translated.
 - **Uploads Directory**: `/tmp/kali_dashboard/uploads`
 
 ### Customization
-Edit the configuration in `shell_matrix_clean.py`:
+Edit the configuration in `shell_matrix.py`:
 
 ```python
 STORAGE_DIR = Path("/tmp/kali_dashboard")  # Change storage location
