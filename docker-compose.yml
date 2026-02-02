@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  shell-matrix:
+    build: .
+    container_name: shell-matrix
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./sessions:/tmp/kali_dashboard
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_add:
+      - SYS_PTRACE
