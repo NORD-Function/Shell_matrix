@@ -2,7 +2,7 @@
 >_ SHELL MATRIX by Rondinelli Castilho - N0rd
 """
 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect, UploadFile, File
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, UploadFile, File, HTTPException
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -32,6 +32,15 @@ STORAGE_DIR.mkdir(exist_ok=True)
 SESSIONS_FILE = STORAGE_DIR / "sessions.json"
 UPLOADS_DIR = STORAGE_DIR / "uploads"
 UPLOADS_DIR.mkdir(exist_ok=True)
+
+def _safe_upload_path(filename: str) -> Path:
+    safe_name = Path(filename).name
+    if not safe_name or safe_name in {".", ".."}:
+        raise HTTPException(status_code=400, detail="Invalid filename")
+    file_path = (UPLOADS_DIR / safe_name).resolve()
+    if UPLOADS_DIR.resolve() not in file_path.parents:
+        raise HTTPException(status_code=400, detail="Invalid filename")
+    return file_path
 
 class TerminalCreate(BaseModel):
     name: str = "Terminal"
@@ -1982,14 +1991,14 @@ async def get_terminal_log(terminal_id: str):
 
 @app.post("/api/upload")
 async def upload_file(file: UploadFile = File(...)):
-    file_path = UPLOADS_DIR / file.filename
+    file_path = _safe_upload_path(file.filename)
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-    return {"filename": file.filename, "path": str(file_path)}
+    return {"filename": file_path.name, "path": str(file_path)}
 
 @app.get("/api/download/{filename}")
 async def download_file(filename: str):
-    file_path = UPLOADS_DIR / filename
+    file_path = _safe_upload_path(filename)
     if file_path.exists():
         return FileResponse(file_path)
     return {"error": "File not found"}
