@@ -2,7 +2,7 @@
 
 # 🖥️ SHELL MATRIX - Advanced Terminal Dashboard
 
-** kali_dashboard was a phase. **
+**kali_dashboard was a phase.**
 
 <div align="center">
 
