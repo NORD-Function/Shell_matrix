@@ -122,7 +122,7 @@ pip install fastapi uvicorn websockets python-multipart
 
 3. **Run the application**
 ```bash
-python shell_matrix_clean.py
+python shell_matrix.py
 ```
 
 4. **Access the dashboard**
